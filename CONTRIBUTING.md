@@ -1,7 +1,5 @@
 # Contributing Guide
 
-Thank you for your interest in contributing to this project! This guide outlines the best practices for contributing using a single-branch (main) workflow.
-
 ## Development Setup
 
 1. **Clone the repository**
@@ -10,19 +8,19 @@ Thank you for your interest in contributing to this project! This guide outlines
    cd python-template
    ```
 
-2. **Install Poetry** (if not already installed)
+2. **Install uv** (if not already installed)
    ```bash
-   curl -sSL https://install.python-poetry.org | python3 -
+   curl -LsSf https://astral.sh/uv/install.sh | sh
    ```
 
 3. **Install dependencies**
    ```bash
-   poetry install
+   uv sync --dev
    ```
 
 4. **Install pre-commit hooks**
    ```bash
-   poetry run pre-commit install
+   uv run pre-commit install
    ```
 
 ## Git Workflow (Feature Branch)
@@ -39,9 +37,7 @@ This project uses a **feature branch workflow** with `main` as the production br
 
 2. **Create a feature branch**
    ```bash
-   git checkout -b feature/your-feature-name
-   # or for bug fixes
-   git checkout -b fix/issue-description
+   git checkout -b your-branch-name
    ```
 
 3. **Make your changes on the feature branch**
@@ -51,13 +47,13 @@ This project uses a **feature branch workflow** with `main` as the production br
 
 4. **Test your changes**
    ```bash
-   poetry run pytest
-   poetry run pre-commit run --all-files
+   uv run pytest
+   uv run pre-commit run --all-files
    ```
 
 5. **Commit your changes**
    ```bash
-   git add .
+   git add <your-files>
    git commit -m "descriptive commit message"
    ```
 
@@ -72,8 +68,6 @@ This project uses a **feature branch workflow** with `main` as the production br
 
 - Use the present tense ("Add feature" not "Added feature")
 - Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
-- Limit the first line to 72 characters or less
-- Reference issues and pull requests liberally after the first line
 
 **Examples:**
 ```
@@ -96,9 +90,9 @@ Fixes #123
    - Make changes on your feature branch
    - Push additional commits to update the PR
    ```bash
-   git add .
+   git add <your-files>
    git commit -m "Address review feedback"
-   git push origin feature/your-feature-name
+   git push origin your-branch-name
    ```
 
 3. **Merge requirements**
@@ -106,56 +100,22 @@ Fixes #123
    - At least one approving review required
    - No merge conflicts with main
 
-4. **After merge, clean up**
-   ```bash
-   git checkout main
-   git pull origin main
-   git branch -d feature/your-feature-name
-   git push origin --delete feature/your-feature-name
-   ```
-
-### Branch Naming Conventions
-
-- `feature/description` - New features
-- `fix/description` - Bug fixes
-- `docs/description` - Documentation updates
-- `refactor/description` - Code refactoring
-- `test/description` - Test improvements
-
-Examples:
-- `feature/user-authentication`
-- `fix/memory-leak-in-parser`
-- `docs/api-documentation`
-
 ## Code Quality Standards
 
 ### Pre-commit Hooks
 This project uses pre-commit hooks to ensure code quality. The following checks run automatically:
 
-- **Black**: Code formatting
-- **isort**: Import sorting
-- **Flake8**: Linting
-- **MyPy**: Type checking
+- **Ruff**: Code formatting and linting
+- **pyright**: Type checking
 - **YAML/TOML validation**
 - **Trailing whitespace removal**
+- Several others for general file checks
 
 ### Running Quality Checks Manually
 
 ```bash
-# Format code
-poetry run black .
-
-# Sort imports
-poetry run isort .
-
-# Run linter
-poetry run flake8
-
-# Type checking
-poetry run mypy .
-
 # Run all pre-commit hooks
-poetry run pre-commit run --all-files
+uv run pre-commit run --all-files
 ```
 
 ### Testing
@@ -164,8 +124,7 @@ poetry run pre-commit run --all-files
 - Maintain test coverage above 80%
 - Run tests locally before committing:
   ```bash
-  poetry run pytest
-  poetry run pytest --cov=python_template
+  uv run pytest
   ```
 
 ## Project Structure
@@ -192,22 +151,10 @@ python-template/
 ### Pre-commit Hook Failures
 If pre-commit hooks fail:
 1. Review the error messages
-2. Fix the issues (or let tools like Black fix them automatically)
+2. Fix the issues
 3. Re-add and commit your changes
 
-### Poetry Issues
-- Update Poetry: `poetry self update`
-- Clear cache: `poetry cache clear pypi --all`
-- Reinstall dependencies: `poetry install --remove-untracked`
-
-## Getting Help
-
-- Open an issue for bugs or feature requests
-- Check existing issues before creating new ones
-- Be descriptive in issue titles and descriptions
-
-## Code of Conduct
-
-- Be respectful and inclusive
-- Focus on constructive feedback
-- Help maintain a positive community environment
+### uv Issues
+- Update uv: `uv self update`
+- Clear cache: `uv cache clean`
+- Reinstall dependencies: `uv sync --reinstall --dev`

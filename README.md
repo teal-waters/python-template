@@ -1,13 +1,14 @@
 # Python Template
 
-A modern Python package template with Poetry, pre-commit hooks, and GitHub Actions CI/CD.
+A Python package template with [uv](https://docs.astral.sh/uv/), [pre-commit hooks](https://pre-commit.com), and GitHub Actions for CI/CD.
 
 ## Features
 
-- 📦 **Poetry** for dependency management and packaging
-- 🔧 **Pre-commit hooks** for code quality (Black, isort, Flake8, MyPy)
+- 📦 [**uv**](https://docs.astral.sh/uv/) for dependency management and packaging
+- 🔧 [**Pre-commit hooks**](https://pre-commit.com) for code quality (primarily using [Ruff](https://docs.astral.sh/ruff/))
+- 🏷️ **mypy** for type checking
 - 🧪 **Pytest** with coverage reporting
-- 🚀 **GitHub Actions** for automated testing and checks
+- 🚀 **GitHub Act ions** for automated testing and checks
 - 📋 **PR template** and contributing guidelines
 - 🐍 **Python 3.12+** support
 
@@ -15,47 +16,39 @@ A modern Python package template with Poetry, pre-commit hooks, and GitHub Actio
 
 ### Using This Template
 
-1. **Click "Use this template"** on GitHub or clone the repository:
-   ```bash
-   git clone <your-repo-url>
-   cd python-template
-   ```
+1. **Click "Use this template"** on GitHub
 
-2. **Install Poetry** (if not already installed):
+2. **Install uv** (if not already installed):
    ```bash
-   curl -sSL https://install.python-poetry.org | python3 -
+   curl -LsSf https://astral.sh/uv/install.sh | sh
    ```
 
 3. **Install dependencies**:
    ```bash
-   poetry install
+   uv sync --dev
    ```
 
 4. **Set up pre-commit hooks**:
    ```bash
-   poetry run pre-commit install
+   uv run pre-commit install
    ```
 
 5. **Customize for your project**:
    - Update `pyproject.toml` with your project details
-   - Rename the `python_template` directory to your package name
+   - Rename the `python_template` directory to your package name along with any other references to this directory
    - Update this README with your project information
 
 ## Development
 
 ### Running Tests
 ```bash
-poetry run pytest
-poetry run pytest --cov=python_template  # With coverage
+uv run pytest
 ```
 
 ### Code Quality
 ```bash
-poetry run black .              # Format code
-poetry run isort .              # Sort imports
-poetry run flake8              # Lint code
-poetry run mypy .              # Type check
-poetry run pre-commit run --all-files  # Run all hooks
+uv run pyright                  # Type check
+uv run pre-commit run --all-files  # Run all hooks
 ```
 
 ### Project Structure
@@ -72,7 +65,3 @@ python-template/
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for development workflow and guidelines.
-
-## License
-
-[Add your license information here]

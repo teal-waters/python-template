@@ -21,8 +21,8 @@
 
 ## Testing
 <!-- Describe the tests you ran to verify your changes -->
-- [ ] Tests pass locally with `poetry run pytest`
-- [ ] Pre-commit hooks pass with `pre-commit run --all-files`
+- [ ] Tests pass locally with `uv run pytest`
+- [ ] Pre-commit hooks pass with `uv run pre-commit run --all-files`
 - [ ] Manual testing performed (describe below if applicable)
 
 ### Manual Testing Details
@@ -30,7 +30,6 @@
 
 ## Checklist
 <!-- Mark completed items with an "x" -->
-- [ ] My code follows the style guidelines of this project
 - [ ] I have performed a self-review of my own code
 - [ ] I have commented my code, particularly in hard-to-understand areas
 - [ ] I have made corresponding changes to the documentation
@@ -42,5 +41,5 @@
 ## Related Issues
 <!-- Link any related issues using "Fixes #123" or "Closes #123" -->
 
-## Additional Notes
-<!-- Any additional information that reviewers should know -->
+## Additional Notes and References
+<!-- Any additional information that reviewers should know or relevant links -->
