@@ -6,7 +6,7 @@ A Python package template with [uv](https://docs.astral.sh/uv/), [pre-commit hoo
 
 - 📦 [**uv**](https://docs.astral.sh/uv/) for dependency management and packaging
 - 🔧 [**Pre-commit hooks**](https://pre-commit.com) for code quality (primarily using [Ruff](https://docs.astral.sh/ruff/))
-- 🏷️ **mypy** for type checking
+- 🏷️ **pyright** for type checking
 - 🧪 **Pytest** with coverage reporting
 - 🚀 **GitHub Act ions** for automated testing and checks
 - 📋 **PR template** and contributing guidelines
