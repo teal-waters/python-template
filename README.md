@@ -8,7 +8,7 @@ A Python package template with [uv](https://docs.astral.sh/uv/), [pre-commit hoo
 - 🔧 [**Pre-commit hooks**](https://pre-commit.com) for code quality (primarily using [Ruff](https://docs.astral.sh/ruff/))
 - 🏷️ **pyright** for type checking
 - 🧪 **Pytest** with coverage reporting
-- 🚀 **GitHub Act ions** for automated testing and checks
+- 🚀 **GitHub Actions** for automated testing and checks
 - 📋 **PR template** and contributing guidelines
 - 🐍 **Python 3.12+** support
 
